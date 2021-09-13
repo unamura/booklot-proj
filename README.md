@@ -1,3 +1,3 @@
-# Bookstore
+# Lord of the Rings Italian book project
 
-This will be a simple java web application which will use Spring and a PostgreSQL database.
+THe project aim to be a complete vision of all the books about the lord of the rings in italiang languages.
