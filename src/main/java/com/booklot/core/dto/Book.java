@@ -1,10 +1,15 @@
 package com.booklot.core.dto;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import lombok.Data;
 
@@ -22,7 +27,7 @@ public class Book {
 	private Date publishingYear;
 	@Column(name = "publishong_editor")
 	private String publishingEditor;
-	@Column(name = "author_id")
-	private Integer authorId;
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "booksAuthored", cascade = CascadeType.ALL)
+	private Set<Author> authorOfBook = new HashSet<Author>();
 
 }

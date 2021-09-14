@@ -26,6 +26,7 @@ public class BookLotController {
 	@RequestMapping("lotr/author/{id}")
 	public Author findAuthorById(@PathVariable long id) {
 		System.out.println("findAuthorById(" + id + ");");
+		
 		Author au = bookAuthor.findById(id);
 		return au;
 	}
