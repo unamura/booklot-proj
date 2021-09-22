@@ -11,11 +11,15 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.Data;
 
 @Entity
 @Data
-public class Book {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class BookEntity {
 	@Id
 	@Column(name = "id")
 	private Long id;
@@ -27,7 +31,8 @@ public class Book {
 	private Date publishingYear;
 	@Column(name = "publishong_editor")
 	private String publishingEditor;
+	//@JsonBackReference
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "booksAuthored", cascade = CascadeType.ALL)
-	private Set<Author> authorOfBook = new HashSet<Author>();
+	private Set<AuthorEntity> authorOfBook = new HashSet<AuthorEntity>();
 
 }

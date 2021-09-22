@@ -2,9 +2,9 @@ package com.booklot.core.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.booklot.core.dto.Book;
+import com.booklot.core.dto.BookEntity;
 
-public interface BookRepository extends JpaRepository<Book, Long>{
+public interface BookRepository extends JpaRepository<BookEntity, Long>{
 
-	Book findById(long id);
+	BookEntity findById(long id);
 }
