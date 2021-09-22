@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.booklot.core.dao.BookRepository;
 import com.booklot.core.dao.OriginalBookAuthor;
-import com.booklot.core.dto.AuthorEntity;
-import com.booklot.core.dto.BookEntity;
+import com.booklot.core.dto.AuthorDTO;
+import com.booklot.core.entities.Author;
+import com.booklot.core.entities.Book;
 
 @RestController
 public class BookLotController {
@@ -24,18 +25,19 @@ public class BookLotController {
 	}
 	
 	@RequestMapping("lotr/author/{id}")
-	public AuthorEntity findAuthorById(@PathVariable long id) {
+	public Author findAuthorById(@PathVariable long id) {
 		System.out.println("findAuthorById(" + id + ");");
 		
-		AuthorEntity au = bookAuthor.findById(id);
+		Author au = bookAuthor.findById(id);
+		//AuthorDTO auDTO = new AuthorDTO(au);
 		return au;
 	}
 	
 	@RequestMapping("lotr/book/{id}")
-	public BookEntity findBookById(@PathVariable long id) {
+	public Book findBookById(@PathVariable long id) {
 		System.out.println("findBookById(" + id + ");");
 		
-		BookEntity bk = bookRepo.findById(id);
+		Book bk = bookRepo.findById(id);
 		return bk;
 	}
 
